@@ -5,7 +5,6 @@ let minutes = 0;
 let seconds = 0;
 
 let text = document.getElementById("time-heading");
-text.innerHTML = hours + ":" + minutes + ":" + seconds;
 let t;
 let status = false;
 
@@ -13,8 +12,6 @@ startTimer = (event) => {
   if (status == false) {
     t = setInterval(() => {
       status = true;
-      seconds++;
-      text.innerHTML = hours + ":" + minutes + ":" + seconds;
       if (seconds >= 60) {
         seconds = 0;
         minutes++;
@@ -31,6 +28,9 @@ startTimer = (event) => {
           }
         }
       }
+      if (text.innerHTML !== "00:00:00 Timer Expired")
+        text.innerHTML = hours + ":" + minutes + ":" + seconds;
+      seconds++;
     }, 1000);
   }
 };
