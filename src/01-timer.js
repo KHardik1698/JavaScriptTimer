@@ -67,5 +67,5 @@ resetTimer = (event) => {
   hours = 0;
   minutes = 0;
   seconds = 0;
-  text.innerHTML = hours + ":" + minutes + ":" + seconds;
+  text.innerHTML = "00:00:00";
 };
