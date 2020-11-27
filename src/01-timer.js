@@ -3,6 +3,7 @@ let divRoot = document.getElementById("root");
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
+let elapsed = 0;
 
 let displayHours = hours;
 let displayMinutes = minutes;
@@ -14,9 +15,10 @@ let status = false;
 
 startTimer = (event) => {
   if (status == false) {
+    status = true;
     t = setInterval(() => {
-      status = true;
       seconds++;
+      elapsed++;
       if (seconds >= 60) {
         seconds = 0;
         minutes++;
@@ -68,4 +70,10 @@ resetTimer = (event) => {
   minutes = 0;
   seconds = 0;
   text.innerHTML = "00:00:00";
+  window.alert(
+    `Timer Reset. Elapsed time : ${Math.floor(elapsed / 60)} Minutes : ${
+      elapsed % 60
+    } Seconds`
+  );
+  elapsed = 0;
 };
